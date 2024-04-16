@@ -4,7 +4,7 @@
 
 <h1><b>HOSPITAL APP</b></h1>
  
-  <img src="./recipe_erd_2_members.png" alt="logo" width="200"  height="auto">
+  <img src="./hospital_app_ERD.png" alt="logo" width="200"  height="auto">
   <br/>
 
 </div>
