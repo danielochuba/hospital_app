@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<h1><b>RECIPE APP: SETUP</b></h1>
+<h1><b>HOSPITAL APP</b></h1>
  
   <img src="./recipe_erd_2_members.png" alt="logo" width="200"  height="auto">
   <br/>
@@ -32,9 +32,9 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-# 📖 [RECIPE APP] <a name="about-project"></a>
+# 📖 [HOSPITAL APP] <a name="about-project"></a>
 
-**[RECIPE APP]**  The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
+**[HOSPITAL APP]**  A web-based hospital management system built with Ruby on Rails, designed to streamline patient registration and management. The application features a unified login portal for both receptionists and doctors, allowing receptionists to register patients and manage their records, while doctors can view registered patients and visualize patient registrations over days through graphs.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -50,21 +50,14 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://www.microverse.org/">Microverse</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Ruby</summary>
-  <ul>
-    <li><a href="https://www.ruby-lang.org/">Ruby</a></li>
+    <li><a href="www.makerble.com/">Makerble</a></li>
   </ul>
 </details>
 
 <details>
 <summary>Rails</summary>
   <ul>
-    <li><a href="https://www.rubyonrails.org/">Rails</a></li>
+    <li><a href="https://www.rubyonrails.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 
@@ -77,15 +70,19 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Setup KANBAN BOARD]**
+- **[User Authentication]**: Users can sign up, log in, and log out of the application.
+- **[User Authorization]**: Users can only access certain pages based on their role.
+- **[Patient Registration]**: Receptionists can register patients with their details.
+- **[Patient Management]**: Receptionists can view and manage patient records.
+- **[Doctor Portal]**: Doctors can view registered patients and visualize patient registrations over days through graphs.
+- **[Unified Login]**: Both receptionists and doctors can log in through a unified login portal.
+- **[Responsive Design]**: The application is responsive and can be viewed on mobile, tablet, and desktop devices.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Coming Soon...](https://github.com/danielochuba/recipe-app)
+- [Coming Soon...]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -107,14 +104,14 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone "https://github.com/danielochuba/recipe-app.git"
+  git clone "https://github.com/danielochuba/hospital_app.git"
 ```
 ### Install
 
 Go to your /recipe-app folder:
 
 ```sh
-  cd recipe-app
+  cd hospital_app
   bundle install
   rails server
 ```
@@ -133,22 +130,17 @@ Go to your /recipe-app folder:
 
 ### Deployment
 
-You can deploy this project using:<br>[Coming Soon!!!](https://github.com/danielochuba/recipe-app)
+You can deploy this project using:<br>[Coming Soon!!!]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Author <a name="authors"></a>
 
-👤 **Micronaut JUAN DAVID DIAZ**
-
-- GitHub: [@JuanDBta](https://github.com/JuanDBta)
-- Twitter: [@simplebetsas](https://twitter.com/simplebetsas)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/simplebet/)
-
-👤 **Micronaut Daniel Ochuba Ugochukwu**
+> 👤 Daniel Ochuba Ugochukwu**
 
 - GitHub: [@danielochuba](https://github.com/danielochuba)
-
+- Twitter: [@ochuba_daniel](https://twitter.com/ochuba_daniel)
+- LinkedIn: [Daniel Ochuba](https://www.linkedin.com/in/daniel-ochuba-ugochukwu)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -199,13 +191,11 @@ We would like to thank Bee in Student Success who is always avalaible to solve i
 
 - **["How can I see more projects associated with these authors?"]**
 
-  - Check my [@JuanDBta](https://github.com/JuanDBta)
    - Check my [@danielochuba](https://github.com/danielochuba)
 
 - **[How can I contact the authors of this project?]**
 
-  - Check my [LinkedIn profile](https://linkedin.com/in/simplebet/) or email me at simplebetsas@gmail.com
-  - Email me at danielochuba78@gmail.com
+    - Email me at danielochuba78@gmail.com
 
   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
