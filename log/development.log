@@ -958,3 +958,349 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 422ms (Views: 404.7ms | ActiveRecord: 0.0ms | Allocations: 33962)
 
 
+Started GET "/rails/info/routes" for ::1 at 2024-04-16 14:41:06 +0100
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8.1/lib/rails/templates/layouts/application.html.erb
+  Rendering c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actionpack-7.0.8.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [46 times] (Duration: 38.6ms | Allocations: 7291)
+  Rendered c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actionpack-7.0.8.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 3.8ms | Allocations: 885)
+  Rendered c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 147.6ms | Allocations: 12553)
+  Rendered layout c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8.1/lib/rails/templates/layouts/application.html.erb (Duration: 196.2ms | Allocations: 12829)
+Completed 200 OK in 231ms (Views: 214.4ms | ActiveRecord: 0.0ms | Allocations: 13715)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-04-16 14:41:33 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.2ms | Allocations: 715)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 272.1ms | Allocations: 4967)
+  Rendered layout layouts/application.html.erb (Duration: 303.7ms | Allocations: 6610)
+Completed 200 OK in 702ms (Views: 340.0ms | ActiveRecord: 75.6ms | Allocations: 19049)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-04-16 14:41:49 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.7ms | Allocations: 234)
+  Rendered devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 156)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 23.8ms | Allocations: 2084)
+  Rendered layout layouts/application.html.erb (Duration: 51.6ms | Allocations: 3505)
+Completed 200 OK in 96ms (Views: 80.8ms | ActiveRecord: 0.0ms | Allocations: 4596)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-04-17 16:03:48 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 180.2ms | Allocations: 2072)
+  Rendered layout layouts/application.html.erb (Duration: 188.5ms | Allocations: 2170)
+Completed 500 Internal Server Error in 813ms (ActiveRecord: 24.8ms | Allocations: 14982)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.email_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.select :role, ["Receptionist", "Doctor"] autofocus: true, autocomplete: "Role" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:    
+6:      <div class="field">
+7:        <%= f.label :first_name %><br />
+8:        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+9:      </div>
+10:    
+11:      <div class="field">
+12:        <%= f.label :last_name %><br />
+13:        <%= f.email_field :last_name, autofocus: true, autocomplete: "last_name" %>
+14:      </div>
+15:    
+16:      <div class="field">
+17:        <%= f.label :email %><br />
+18:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+19:      </div>
+20:    
+21:      <div class="field">
+22:        <%= f.label :role %><br />
+23:        <%= f.select :role, ["Receptionist", "Doctor"] autofocus: true, autocomplete: "Role" %>
+24:      </div>
+25:    
+26:      <div class="field">
+27:        <%= f.label :password %>
+28:        <% if @minimum_password_length %>
+29:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+30:        <% end %><br />
+31:        <%= f.password_field :password, autocomplete: "new-password" %>
+32:      </div>
+33:    
+34:      <div class="field">
+35:        <%= f.label :password_confirmation %><br />
+36:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+37:      </div>
+38:    
+39:      <div class="actions">
+40:        <%= f.submit "Sign up" %>
+41:      </div>
+42:    <% end %>
+43:    
+44:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:23: syntax error, unexpected local variable or method, expecting ')'
+app/views/devise/registrations/new.html.erb:23: syntax error, unexpected local variable or method, expecting ')'
+app/views/devise/registrations/new.html.erb:23: syntax error, unexpected local variable or method, expecting ')'
+app/views/devise/registrations/new.html.erb:23: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/users/sign_up" for ::1 at 2024-04-17 16:09:18 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 35.9ms | Allocations: 239)
+  Rendered devise/shared/_links.html.erb (Duration: 140.9ms | Allocations: 607)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 938.4ms | Allocations: 12964)
+  Rendered layout layouts/application.html.erb (Duration: 2247.8ms | Allocations: 45533)
+Completed 200 OK in 2306ms (Views: 2297.0ms | ActiveRecord: 0.0ms | Allocations: 46804)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-04-17 16:12:06 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.6ms | Allocations: 225)
+  Rendered devise/shared/_links.html.erb (Duration: 4.3ms | Allocations: 515)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 205.8ms | Allocations: 3225)
+  Rendered layout layouts/application.html.erb (Duration: 225.9ms | Allocations: 4879)
+Completed 200 OK in 310ms (Views: 302.5ms | ActiveRecord: 0.0ms | Allocations: 6105)
+
+
+Started POST "/users" for ::1 at 2024-04-17 16:12:31 +0100
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Daniel", "last_name"=>"Ochuba", "email"=>"danielochuba78@gmail.com", "role"=>"Receptionist", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameters: :first_name, :last_name, :role. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000002145ca50dd0>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Daniel", "last_name"=>"Ochuba", "email"=>"danielochuba78@gmail.com", "role"=>"Receptionist", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (16.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "danielochuba78@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (17.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "danielochuba78@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-04-17 15:12:32.817878"], ["updated_at", "2024-04-17 15:12:32.817878"], ["first_name", nil], ["last_name", nil], ["role", nil]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 959ms (ActiveRecord: 73.5ms | Allocations: 14110)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "first_name" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (1, danielochuba78@gmail.com, $2a$12$8uCo/0rFVir5zOQTEE3yiOYwReAPN.S4RLD2pXWXIsHMA/2qhlsZ6, null, null, null, 2024-04-17 15:12:32.817878, 2024-04-17 15:12:32.817878, null, null, null).
+):
+  
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql_adapter.rb:768:in `exec_params'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql_adapter.rb:768:in `block (2 levels) in exec_no_cache'
+activesupport (7.0.8.1) lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+activesupport (7.0.8.1) lib/active_support/dependencies/interlock.rb:41:in `permit_concurrent_loads'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql_adapter.rb:767:in `block in exec_no_cache'
+activesupport (7.0.8.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+activesupport (7.0.8.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+activesupport (7.0.8.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+activesupport (7.0.8.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract_adapter.rb:752:in `block in log'
+activesupport (7.0.8.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract_adapter.rb:743:in `log'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql_adapter.rb:766:in `exec_no_cache'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql_adapter.rb:745:in `execute_and_clear'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:54:in `exec_query'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/database_statements.rb:132:in `exec_insert'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:88:in `exec_insert'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/database_statements.rb:167:in `insert'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/query_cache.rb:22:in `insert'
+activerecord (7.0.8.1) lib/active_record/persistence.rb:496:in `_insert_record'
+activerecord (7.0.8.1) lib/active_record/persistence.rb:1098:in `_create_record'
+activerecord (7.0.8.1) lib/active_record/counter_cache.rb:166:in `_create_record'
+activerecord (7.0.8.1) lib/active_record/locking/optimistic.rb:84:in `_create_record'
+activerecord (7.0.8.1) lib/active_record/attribute_methods/dirty.rb:222:in `_create_record'
+activerecord (7.0.8.1) lib/active_record/callbacks.rb:459:in `block in _create_record'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:929:in `_run_create_callbacks'
+activerecord (7.0.8.1) lib/active_record/callbacks.rb:459:in `_create_record'
+activerecord (7.0.8.1) lib/active_record/timestamp.rb:108:in `_create_record'
+activerecord (7.0.8.1) lib/active_record/persistence.rb:1069:in `create_or_update'
+activerecord (7.0.8.1) lib/active_record/callbacks.rb:455:in `block in create_or_update'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:929:in `_run_save_callbacks'
+activerecord (7.0.8.1) lib/active_record/callbacks.rb:455:in `create_or_update'
+activerecord (7.0.8.1) lib/active_record/timestamp.rb:126:in `create_or_update'
+activerecord (7.0.8.1) lib/active_record/persistence.rb:615:in `save'
+activerecord (7.0.8.1) lib/active_record/validations.rb:47:in `save'
+activerecord (7.0.8.1) lib/active_record/transactions.rb:298:in `block in save'
+activerecord (7.0.8.1) lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+activesupport (7.0.8.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+activesupport (7.0.8.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+activesupport (7.0.8.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+activesupport (7.0.8.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+activerecord (7.0.8.1) lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+activerecord (7.0.8.1) lib/active_record/transactions.rb:298:in `save'
+activerecord (7.0.8.1) lib/active_record/suppressor.rb:50:in `save'
+devise (4.9.4) app/controllers/devise/registrations_controller.rb:19:in `create'
+actionpack (7.0.8.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+actiontext (7.0.8.1) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.8.1) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.8.1) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users/sign_up" for ::1 at 2024-04-17 16:16:50 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 99)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 23.8ms | Allocations: 2066)
+  Rendered layout layouts/application.html.erb (Duration: 166.1ms | Allocations: 16867)
+Completed 200 OK in 259ms (Views: 173.3ms | ActiveRecord: 58.2ms | Allocations: 21021)
+
+
+Started POST "/users" for ::1 at 2024-04-17 16:17:21 +0100
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Daniel", "last_name"=>"Ochuba", "email"=>"danielochuba78@gmail.com", "role"=>"Receptionist", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "danielochuba78@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "danielochuba78@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-04-17 15:17:22.294746"], ["updated_at", "2024-04-17 15:17:22.294746"], ["first_name", "Daniel"], ["last_name", "Ochuba"], ["role", "Receptionist"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 558ms (ActiveRecord: 10.6ms | Allocations: 6769)
+
+
+Started GET "/" for ::1 at 2024-04-17 16:17:22 +0100
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 24.7ms | Allocations: 113)
+  Rendered layout layouts/application.html.erb (Duration: 50.5ms | Allocations: 1759)
+Completed 200 OK in 104ms (Views: 89.7ms | ActiveRecord: 0.0ms | Allocations: 2549)
+
+
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4489890031917224025)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(4489890031917224025)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
