@@ -146,4 +146,3 @@ RSpec.describe '/patients', type: :request do
     end
   end
 end
-
