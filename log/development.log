@@ -1678,3 +1678,21 @@ Processing by PatientsController#index as TURBO_STREAM
 Completed 200 OK in 44ms (Views: 37.2ms | ActiveRecord: 1.1ms | Allocations: 2502)
 
 
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4489890031917224025)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (9.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDoctorAppointments (20240418223053)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.7ms)[0m  [1m[35mCREATE TABLE "doctor_appointments" ("id" bigserial primary key, "user_id" bigint NOT NULL, "patient_id" bigint NOT NULL, "date" date, "illness" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_219e4da917"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_95af2ef7ab"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE INDEX "index_doctor_appointments_on_user_id" ON "doctor_appointments" ("user_id")[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE INDEX "index_doctor_appointments_on_patient_id" ON "doctor_appointments" ("patient_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240418223053"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (6.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4489890031917224025)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

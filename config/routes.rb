@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :doctor_appointments
   resources :patients
 
   devise_for :users
