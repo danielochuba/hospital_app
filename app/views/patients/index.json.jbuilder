@@ -1,1 +1,1 @@
-json.array! @patients, partial: "patients/patient", as: :patient
+json.array! @patients, partial: 'patients/patient', as: :patient
