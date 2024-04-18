@@ -1379,3 +1379,302 @@ Migrating to CreatePatients (20240418173000)
   [1m[36mActiveRecord::InternalMetadata Load (5.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(4489890031917224025)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/patients" for ::1 at 2024-04-18 18:36:41 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (4.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/index.html.erb within layouts/application (Duration: 25.7ms | Allocations: 1205)
+  Rendered layout layouts/application.html.erb (Duration: 377.4ms | Allocations: 16286)
+Completed 200 OK in 489ms (Views: 407.4ms | ActiveRecord: 4.4ms | Allocations: 18480)
+
+
+Started GET "/patients/new" for ::1 at 2024-04-18 18:36:56 +0100
+Processing by PatientsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 32.2ms | Allocations: 2123)
+  Rendered patients/new.html.erb within layouts/application (Duration: 39.5ms | Allocations: 2424)
+  Rendered layout layouts/application.html.erb (Duration: 69.4ms | Allocations: 3782)
+Completed 200 OK in 178ms (Views: 80.8ms | ActiveRecord: 40.6ms | Allocations: 7295)
+
+
+Started POST "/patients" for ::1 at 2024-04-18 18:38:07 +0100
+Processing by PatientsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "patient"=>{"first_name"=>"Daniel", "last_name"=>"Ugochukwu", "age"=>"23", "address"=>"Amaetiti Achi"}, "commit"=>"Create Patient"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:27:in `block in create'
+  [1m[36mPatient Create (3.6ms)[0m  [1m[32mINSERT INTO "patients" ("first_name", "last_name", "age", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Daniel"], ["last_name", "Ugochukwu"], ["age", "23"], ["address", "Amaetiti Achi"], ["created_at", "2024-04-18 17:38:13.103548"], ["updated_at", "2024-04-18 17:38:13.103548"]]
+  ↳ app/controllers/patients_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/patients/1
+Completed 302 Found in 101ms (ActiveRecord: 16.5ms | Allocations: 5714)
+
+
+Started GET "/patients/1" for ::1 at 2024-04-18 18:38:13 +0100
+Processing by PatientsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/_patient.html.erb (Duration: 2.8ms | Allocations: 253)
+  Rendered patients/show.html.erb within layouts/application (Duration: 74.0ms | Allocations: 1572)
+  Rendered layout layouts/application.html.erb (Duration: 210.4ms | Allocations: 16379)
+Completed 200 OK in 251ms (Views: 216.4ms | ActiveRecord: 1.5ms | Allocations: 18403)
+
+
+Started GET "/patients" for ::1 at 2024-04-18 18:38:20 +0100
+Processing by PatientsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered patients/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 995)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 2339)
+Completed 200 OK in 41ms (Views: 31.0ms | ActiveRecord: 1.3ms | Allocations: 2639)
+
+
+Started GET "/patients" for ::1 at 2024-04-18 18:38:22 +0100
+Processing by PatientsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 990)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 2335)
+Completed 200 OK in 43ms (Views: 35.8ms | ActiveRecord: 0.8ms | Allocations: 2633)
+
+
+Started GET "/patients" for ::1 at 2024-04-18 18:38:38 +0100
+Processing by PatientsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (2.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/index.html.erb within layouts/application (Duration: 15.3ms | Allocations: 995)
+  Rendered layout layouts/application.html.erb (Duration: 61.1ms | Allocations: 2339)
+Completed 200 OK in 73ms (Views: 64.0ms | ActiveRecord: 2.2ms | Allocations: 2637)
+
+
+Started GET "/patients/new" for ::1 at 2024-04-18 18:38:41 +0100
+Processing by PatientsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 4.4ms | Allocations: 1477)
+  Rendered patients/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1569)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 2921)
+Completed 200 OK in 68ms (Views: 47.4ms | ActiveRecord: 0.0ms | Allocations: 3225)
+
+
+Started GET "/patients" for ::1 at 2024-04-18 18:39:05 +0100
+Processing by PatientsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 0.4ms | Allocations: 23)
+  Rendered patients/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 996)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 2340)
+Completed 200 OK in 40ms (Views: 30.7ms | ActiveRecord: 0.9ms | Allocations: 2638)
+
+
+Started POST "/patients" for ::1 at 2024-04-18 18:39:07 +0100
+Processing by PatientsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "patient"=>{"first_name"=>"Henry", "last_name"=>"Ochuba", "age"=>"23", "address"=>"Enugu"}, "commit"=>"Create Patient"}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:27:in `block in create'
+  [1m[36mPatient Create (1.9ms)[0m  [1m[32mINSERT INTO "patients" ("first_name", "last_name", "age", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Henry"], ["last_name", "Ochuba"], ["age", "23"], ["address", "Enugu"], ["created_at", "2024-04-18 17:39:07.310091"], ["updated_at", "2024-04-18 17:39:07.310091"]]
+  ↳ app/controllers/patients_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/patients/2
+Completed 302 Found in 116ms (ActiveRecord: 3.7ms | Allocations: 2389)
+
+
+Started GET "/patients/2" for ::1 at 2024-04-18 18:39:07 +0100
+Processing by PatientsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/_patient.html.erb (Duration: 0.4ms | Allocations: 23)
+  Rendered patients/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 616)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 1968)
+Completed 200 OK in 65ms (Views: 42.5ms | ActiveRecord: 1.0ms | Allocations: 2800)
+
+
+Started GET "/patients" for ::1 at 2024-04-18 18:39:11 +0100
+Processing by PatientsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered patients/index.html.erb within layouts/application (Duration: 12.9ms | Allocations: 1130)
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | Allocations: 2488)
+Completed 200 OK in 45ms (Views: 36.4ms | ActiveRecord: 1.3ms | Allocations: 2786)
+
+
+Started GET "/patients/2" for ::1 at 2024-04-18 18:39:14 +0100
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 589)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 1925)
+Completed 200 OK in 51ms (Views: 35.5ms | ActiveRecord: 1.3ms | Allocations: 2756)
+
+
+Started GET "/patients/2/edit" for ::1 at 2024-04-18 18:39:16 +0100
+Processing by PatientsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/edit.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 5.4ms | Allocations: 1590)
+  Rendered patients/edit.html.erb within layouts/application (Duration: 10.6ms | Allocations: 1880)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 3224)
+Completed 200 OK in 58ms (Views: 39.5ms | ActiveRecord: 0.6ms | Allocations: 4116)
+
+
+Started GET "/patients" for ::1 at 2024-04-18 18:39:19 +0100
+Processing by PatientsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 0.3ms | Allocations: 23)
+  Rendered patients/_patient.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered patients/index.html.erb within layouts/application (Duration: 16.9ms | Allocations: 1121)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | Allocations: 2465)
+Completed 200 OK in 62ms (Views: 52.7ms | ActiveRecord: 1.1ms | Allocations: 2763)
+
+
+Started GET "/patients/1" for ::1 at 2024-04-18 18:42:11 +0100
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/show.html.erb within layouts/application (Duration: 8.5ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | Allocations: 1928)
+Completed 200 OK in 56ms (Views: 39.6ms | ActiveRecord: 1.0ms | Allocations: 2759)
+
+
+Started GET "/patients/1/edit" for ::1 at 2024-04-18 18:42:12 +0100
+Processing by PatientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/edit.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 8.8ms | Allocations: 1552)
+  Rendered patients/edit.html.erb within layouts/application (Duration: 17.2ms | Allocations: 1677)
+  Rendered layout layouts/application.html.erb (Duration: 55.2ms | Allocations: 3021)
+Completed 200 OK in 93ms (Views: 63.6ms | ActiveRecord: 1.1ms | Allocations: 3852)
+
+
+Started DELETE "/patients/1" for ::1 at 2024-04-18 18:42:13 +0100
+Processing by PatientsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mPatient Load (0.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:52:in `destroy'
+  [1m[36mPatient Destroy (2.3ms)[0m  [1m[31mDELETE FROM "patients" WHERE "patients"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/patients_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 44ms (ActiveRecord: 5.2ms | Allocations: 2595)
+
+
+Started GET "/patients" for ::1 at 2024-04-18 18:42:13 +0100
+Processing by PatientsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 1002)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 2348)
+Completed 200 OK in 53ms (Views: 38.5ms | ActiveRecord: 0.8ms | Allocations: 2647)
+
+
+Started GET "/patients/2" for ::1 at 2024-04-18 18:42:15 +0100
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 583)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 1919)
+Completed 200 OK in 48ms (Views: 32.4ms | ActiveRecord: 0.9ms | Allocations: 2750)
+
+
+Started GET "/patients/new" for ::1 at 2024-04-18 18:42:16 +0100
+Processing by PatientsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 6.8ms | Allocations: 1446)
+  Rendered patients/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1537)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 2943)
+Completed 200 OK in 46ms (Views: 36.9ms | ActiveRecord: 0.0ms | Allocations: 3269)
+
+
+Started GET "/patients/2" for ::1 at 2024-04-18 18:42:16 +0100
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 601)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 1937)
+Completed 200 OK in 42ms (Views: 29.0ms | ActiveRecord: 0.4ms | Allocations: 2768)
+
+
+Started DELETE "/patients/2" for ::1 at 2024-04-18 18:42:19 +0100
+Processing by PatientsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:52:in `destroy'
+  [1m[36mPatient Destroy (1.8ms)[0m  [1m[31mDELETE FROM "patients" WHERE "patients"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/patients_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 37ms (ActiveRecord: 3.8ms | Allocations: 2525)
+
+
+Started GET "/patients" for ::1 at 2024-04-18 18:42:19 +0100
+Processing by PatientsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 843)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 2203)
+Completed 200 OK in 44ms (Views: 37.2ms | ActiveRecord: 1.1ms | Allocations: 2502)
+
+
