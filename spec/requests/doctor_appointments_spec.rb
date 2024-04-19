@@ -12,8 +12,7 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/doctor_appointments", type: :request do
-
+RSpec.describe '/doctor_appointments', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # DoctorAppointment. As you add validations to DoctorAppointment, be sure to
   # adjust the attributes here as well.
@@ -38,70 +37,67 @@ RSpec.describe "/doctor_appointments", type: :request do
     }
   end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       DoctorAppointment.create! valid_attributes
       get doctor_appointments_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       doctor_appointment = DoctorAppointment.create! valid_attributes
       get doctor_appointment_url(doctor_appointment)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_doctor_appointment_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       doctor_appointment = DoctorAppointment.create! valid_attributes
       get edit_doctor_appointment_url(doctor_appointment)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new DoctorAppointment" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new DoctorAppointment' do
+        expect do
           post doctor_appointments_url, params: { doctor_appointment: valid_attributes }
-        }.to change(DoctorAppointment, :count).by(1)
+        end.to change(DoctorAppointment, :count).by(1)
       end
 
-      it "redirects to the created doctor_appointment" do
+      it 'redirects to the created doctor_appointment' do
         post doctor_appointments_url, params: { doctor_appointment: valid_attributes }
         expect(response).to redirect_to(doctor_appointment_url(DoctorAppointment.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new DoctorAppointment" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new DoctorAppointment' do
+        expect do
           post doctor_appointments_url, params: { doctor_appointment: invalid_attributes }
-        }.to change(DoctorAppointment, :count).by(0)
+        end.to change(DoctorAppointment, :count).by(0)
       end
-
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post doctor_appointments_url, params: { doctor_appointment: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
       let(:doctor) { User.create!(email: 'doctor@example.com', password: 'password', role: 'doctor', first_name: 'Theo', last_name: 'Doe') }
       let(:patient) { Patient.create!(first_name: 'Jane', last_name: 'Doe', age: '25', address: 'UK') }
 
@@ -114,14 +110,14 @@ RSpec.describe "/doctor_appointments", type: :request do
         }
       end
 
-      it "updates the requested doctor_appointment" do
+      it 'updates the requested doctor_appointment' do
         doctor_appointment = DoctorAppointment.create! valid_attributes
         patch doctor_appointment_url(doctor_appointment), params: { doctor_appointment: new_attributes }
         doctor_appointment.reload
         expect(response).to have_http_status(:found)
       end
 
-      it "redirects to the doctor_appointment" do
+      it 'redirects to the doctor_appointment' do
         doctor_appointment = DoctorAppointment.create! valid_attributes
         patch doctor_appointment_url(doctor_appointment), params: { doctor_appointment: new_attributes }
         doctor_appointment.reload
@@ -129,26 +125,24 @@ RSpec.describe "/doctor_appointments", type: :request do
       end
     end
 
-    context "with invalid parameters" do
-
+    context 'with invalid parameters' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         doctor_appointment = DoctorAppointment.create! valid_attributes
         patch doctor_appointment_url(doctor_appointment), params: { doctor_appointment: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested doctor_appointment" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested doctor_appointment' do
       doctor_appointment = DoctorAppointment.create! valid_attributes
-      expect {
+      expect do
         delete doctor_appointment_url(doctor_appointment)
-      }.to change(DoctorAppointment, :count).by(-1)
+      end.to change(DoctorAppointment, :count).by(-1)
     end
 
-    it "redirects to the doctor_appointments list" do
+    it 'redirects to the doctor_appointments list' do
       doctor_appointment = DoctorAppointment.create! valid_attributes
       delete doctor_appointment_url(doctor_appointment)
       expect(response).to redirect_to(doctor_appointments_url)
