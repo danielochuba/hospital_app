@@ -7,4 +7,12 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :role, presence: true
 
   has_many :doctor_appointments
+
+  def doctor?
+    role == 'Doctor'
+  end
+
+  def receptionist?
+    role == 'Receptionist'
+  end
 end

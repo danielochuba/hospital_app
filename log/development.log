@@ -2587,3 +2587,17 @@ Processing by DoctorAppointmentsController#index as HTML
 Completed 200 OK in 60ms (Views: 35.2ms | ActiveRecord: 2.5ms | Allocations: 3949)
 
 
+Started GET "/doctor_appointments" for ::1 at 2024-04-19 02:53:42 +0100
+  
+NameError (uninitialized constant ApplicationController::CanCan):
+  
+app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/doctor_appointments_controller.rb:1:in `<main>'
+Started GET "/doctor_appointments" for ::1 at 2024-04-19 02:56:22 +0100
+  
+NameError (uninitialized constant ApplicationController::CanCan):
+  
+app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/doctor_appointments_controller.rb:1:in `<main>'

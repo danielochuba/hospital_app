@@ -11,4 +11,6 @@
   <% end %>
 </div>
 
-<%= link_to "New patient", new_patient_path %>
+<%if can? :create, @patient %>
+  <%= link_to "New patient", new_patient_path %>
+<%end%>

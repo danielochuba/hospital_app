@@ -75,3 +75,8 @@ group :test do
 end
 
 gem 'devise'
+
+gem 'cancancan', '~> 3.5'
+gem 'chartkick'
+gem 'googlecharts'
+
