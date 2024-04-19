@@ -1,22 +1,15 @@
 <div id="<%= dom_id doctor_appointment %>">
-  <p>
-    <strong>User:</strong>
-    <%= doctor_appointment.user_id %>
-  </p>
+  <td>
+    <%= doctor_appointment.patient.first_name %>
+    <%= doctor_appointment.patient.last_name %>
+  </td>
 
-  <p>
-    <strong>Patient:</strong>
-    <%= doctor_appointment.patient_id %>
-  </p>
-
-  <p>
-    <strong>Date:</strong>
+  <td>
     <%= doctor_appointment.date %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Illness:</strong>
+  <td>
     <%= doctor_appointment.illness %>
-  </p>
+  </td>
 
 </div>

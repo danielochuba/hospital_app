@@ -9,7 +9,7 @@ class Ability
     can :read, Patient if user.doctor?
 
     return unless user.receptionist?
-
     can :manage, Patient
+
   end
 end

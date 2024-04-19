@@ -1,0 +1,26 @@
+<h1>Receptionist Dashboard</h1>
+
+<div id="patients">
+
+    <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Illness</th>
+      <% if can? :manage, @patient %>
+        <th>Actions</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <%= render patient %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+

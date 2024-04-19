@@ -12,7 +12,7 @@
   <% end %>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
+    <%= form.label :doctor, style: "display: block" %>
     <%= form.select :user_id, @doctors.collect { |d| ["#{d.first_name} #{d.last_name}", d.id] } %>
   </div>
 

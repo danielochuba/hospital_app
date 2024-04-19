@@ -1,0 +1,52 @@
+<h2>Doctor Dashboard</h2>
+<%= line_chart @patients_count_by_day %>
+<div>
+<div id="patients">
+ <h3>All Patients </h3>
+    <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <% if can? :manage, @patient %>
+        <th>Actions</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <%= render patient %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+<div id="appointments">
+    <h4>Patients you have an appointment with</h4>
+     <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <% if can? :manage, @patient %>
+        <th>Actions</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients_appointed.each do |patient| %>
+      <tr>
+        <%= render patient %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+</div>
