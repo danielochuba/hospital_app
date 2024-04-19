@@ -13,17 +13,30 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/doctor_appointments", type: :request do
-  
+
   # This should return the minimal set of attributes required to create a valid
   # DoctorAppointment. As you add validations to DoctorAppointment, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:doctor) { User.create!(email: 'doctor@example.com', password: 'password', role: 'doctor', first_name: 'John', last_name: 'Doe') }
+  let(:patient) { Patient.create!(first_name: 'Jane', last_name: 'Doe', age: '25', address: 'UK') }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:valid_attributes) do
+    {
+      user_id: doctor.id,
+      patient_id: patient.id,
+      illness: 'illness',
+      date: Date.today
+    }
+  end
+
+  let(:invalid_attributes) do
+    {
+      user_id: nil,
+      patient_id: nil,
+      illness: '',
+      date: nil
+    }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -77,26 +90,35 @@ RSpec.describe "/doctor_appointments", type: :request do
         }.to change(DoctorAppointment, :count).by(0)
       end
 
-    
+
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post doctor_appointments_url, params: { doctor_appointment: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
+
     end
   end
 
   describe "PATCH /update" do
     context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+
+      let(:doctor) { User.create!(email: 'doctor@example.com', password: 'password', role: 'doctor', first_name: 'Theo', last_name: 'Doe') }
+      let(:patient) { Patient.create!(first_name: 'Jane', last_name: 'Doe', age: '25', address: 'UK') }
+
+      let(:new_attributes) do
+        {
+          user_id: doctor.id,
+          patient_id: patient.id,
+          illness: 'Malaria',
+          date: Date.today
+        }
+      end
 
       it "updates the requested doctor_appointment" do
         doctor_appointment = DoctorAppointment.create! valid_attributes
         patch doctor_appointment_url(doctor_appointment), params: { doctor_appointment: new_attributes }
         doctor_appointment.reload
-        skip("Add assertions for updated state")
+        expect(response).to have_http_status(:found)
       end
 
       it "redirects to the doctor_appointment" do
@@ -108,13 +130,13 @@ RSpec.describe "/doctor_appointments", type: :request do
     end
 
     context "with invalid parameters" do
-    
+
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         doctor_appointment = DoctorAppointment.create! valid_attributes
         patch doctor_appointment_url(doctor_appointment), params: { doctor_appointment: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
+
     end
   end
 

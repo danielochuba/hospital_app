@@ -1,10 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "doctor_appointments/edit", type: :view do
+  let(:user) { User.create!(email: 'doctor@example.com', password: 'password', role: 'doctor', first_name: 'John', last_name: 'Doe') }
+  let(:patient) { Patient.create!(first_name: 'Jane', last_name: 'Doe', age: '25', address: 'UK') }
+
   let(:doctor_appointment) {
     DoctorAppointment.create!(
-      user: nil,
-      patient: nil,
+      user: user,
+      patient: patient,
+      date: Date.today,
       illness: "MyString"
     )
   }
@@ -17,12 +21,9 @@ RSpec.describe "doctor_appointments/edit", type: :view do
     render
 
     assert_select "form[action=?][method=?]", doctor_appointment_path(doctor_appointment), "post" do
-
-      assert_select "input[name=?]", "doctor_appointment[user_id]"
-
-      assert_select "input[name=?]", "doctor_appointment[patient_id]"
-
-      assert_select "input[name=?]", "doctor_appointment[illness]"
+      assert_select "input[name=?][value=?]", "doctor_appointment[user_id]", doctor_appointment.user_id.to_s
+      assert_select "input[name=?][value=?]", "doctor_appointment[patient_id]", doctor_appointment.patient_id.to_s
+      assert_select "input[name=?][value=?]", "doctor_appointment[illness]", doctor_appointment.illness
     end
   end
 end
