@@ -12,7 +12,7 @@ class DoctorAppointmentsController < ApplicationController
 
   # GET /doctor_appointments/new
   def new
-    @doctors = User.where(role: 'Doctor');
+    @doctors = User.where(role: 'Doctor')
     @patients = Patient.all
 
     @doctor_appointment = DoctorAppointment.new

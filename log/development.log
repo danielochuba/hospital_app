@@ -1696,3 +1696,894 @@ FOREIGN KEY ("patient_id")
   [1m[36mActiveRecord::InternalMetadata Load (6.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4489890031917224025)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/patients/new" for ::1 at 2024-04-19 01:34:51 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (10.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 60.7ms | Allocations: 1979)
+  Rendered patients/new.html.erb within layouts/application (Duration: 73.6ms | Allocations: 2289)
+  Rendered layout layouts/application.html.erb (Duration: 406.6ms | Allocations: 17342)
+Completed 200 OK in 549ms (Views: 441.8ms | ActiveRecord: 0.0ms | Allocations: 21561)
+
+
+Started POST "/patients" for ::1 at 2024-04-19 01:35:07 +0100
+Processing by PatientsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "patient"=>{"first_name"=>"Daniel", "last_name"=>"Ugochukwu", "age"=>"23", "address"=>"Amaetiti Achi"}, "commit"=>"Create Patient"}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:25:in `block in create'
+  [1m[36mPatient Create (8.0ms)[0m  [1m[32mINSERT INTO "patients" ("first_name", "last_name", "age", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Daniel"], ["last_name", "Ugochukwu"], ["age", "23"], ["address", "Amaetiti Achi"], ["created_at", "2024-04-19 00:35:07.700448"], ["updated_at", "2024-04-19 00:35:07.700448"]]
+  ↳ app/controllers/patients_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/patients/3
+Completed 302 Found in 85ms (ActiveRecord: 13.7ms | Allocations: 2715)
+
+
+Started GET "/patients/3" for ::1 at 2024-04-19 01:35:07 +0100
+Processing by PatientsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mPatient Load (4.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:62:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/_patient.html.erb (Duration: 6.3ms | Allocations: 228)
+  Rendered patients/show.html.erb within layouts/application (Duration: 46.3ms | Allocations: 1196)
+  Rendered layout layouts/application.html.erb (Duration: 85.6ms | Allocations: 2533)
+Completed 200 OK in 135ms (Views: 89.2ms | ActiveRecord: 5.3ms | Allocations: 4194)
+
+
+Started GET "/patients/3/edit" for ::1 at 2024-04-19 01:35:10 +0100
+Processing by PatientsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:62:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/edit.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 7.3ms | Allocations: 1542)
+  Rendered patients/edit.html.erb within layouts/application (Duration: 11.9ms | Allocations: 1828)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 3172)
+Completed 200 OK in 48ms (Views: 32.0ms | ActiveRecord: 1.0ms | Allocations: 4058)
+
+
+Started GET "/patients" for ::1 at 2024-04-19 01:35:13 +0100
+Processing by PatientsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (1.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/index.html.erb within layouts/application (Duration: 22.3ms | Allocations: 1205)
+  Rendered layout layouts/application.html.erb (Duration: 46.4ms | Allocations: 2549)
+Completed 200 OK in 64ms (Views: 48.9ms | ActiveRecord: 1.6ms | Allocations: 2929)
+
+
+Started GET "/doctor_apointments" for ::1 at 2024-04-19 01:35:31 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/doctor_apointments"):
+  
+Started GET "/doctor_appointments" for ::1 at 2024-04-19 01:35:38 +0100
+Processing by DoctorAppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/index.html.erb within layouts/application
+  [1m[36mDoctorAppointment Load (9.8ms)[0m  [1m[34mSELECT "doctor_appointments".* FROM "doctor_appointments"[0m
+  ↳ app/views/doctor_appointments/index.html.erb:6
+  Rendered doctor_appointments/index.html.erb within layouts/application (Duration: 24.0ms | Allocations: 1161)
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | Allocations: 2605)
+Completed 200 OK in 167ms (Views: 67.1ms | ActiveRecord: 9.8ms | Allocations: 4861)
+
+
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 01:35:42 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  Rendered doctor_appointments/_form.html.erb (Duration: 31.6ms | Allocations: 2349)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 45.8ms | Allocations: 2648)
+  Rendered layout layouts/application.html.erb (Duration: 71.5ms | Allocations: 4000)
+Completed 200 OK in 194ms (Views: 89.6ms | ActiveRecord: 56.0ms | Allocations: 7983)
+
+
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 01:44:51 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  Rendered doctor_appointments/_form.html.erb (Duration: 413.3ms | Allocations: 1491)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 496.3ms | Allocations: 1767)
+  Rendered layout layouts/application.html.erb (Duration: 616.7ms | Allocations: 1850)
+Completed 500 Internal Server Error in 2416ms (ActiveRecord: 71.8ms | Allocations: 10931)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with(model: doctor_appointment) do |form| %>
+  <% if doctor_appointment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(doctor_appointment.errors.count, "error") %> prohibited this doctor_appointment from being saved:</h2>
+
+      <ul>
+        <% doctor_appointment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.select , @doctors,  :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :patient_id, style: "display: block" %>
+    <%= form.select, @ :patient_id %>
+  </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :illness, style: "display: block" %>
+    <%= form.text_field :illness %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+):
+1:    <%= form_with(model: doctor_appointment) do |form| %>
+2:      <% if doctor_appointment.errors.any? %>
+3:        <div style="color: red">
+4:          <h2><%= pluralize(doctor_appointment.errors.count, "error") %> prohibited this doctor_appointment from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% doctor_appointment.errors.each do |error| %>
+8:              <li><%= error.full_message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <div>
+15:        <%= form.label :user_id, style: "display: block" %>
+16:        <%= form.select , @doctors,  :user_id %>
+17:      </div>
+18:    
+19:      <div>
+20:        <%= form.label :patient_id, style: "display: block" %>
+21:        <%= form.select, @ :patient_id %>
+22:      </div>
+23:    
+24:      <div>
+25:        <%= form.label :date, style: "display: block" %>
+26:        <%= form.date_field :date %>
+27:      </div>
+28:    
+29:      <div>
+30:        <%= form.label :illness, style: "display: block" %>
+31:        <%= form.text_field :illness %>
+32:      </div>
+33:    
+34:      <div>
+35:        <%= form.submit %>
+36:      </div>
+37:    <% end %>
+  
+app/views/doctor_appointments/_form.html.erb:16: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+app/views/doctor_appointments/_form.html.erb:21: `@' without identifiers is not allowed as an instance variable name
+app/views/doctor_appointments/_form.html.erb:21: Can't assign to nil
+app/views/doctor_appointments/_form.html.erb:21: syntax error, unexpected ':', expecting '='
+app/views/doctor_appointments/_form.html.erb:16: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+app/views/doctor_appointments/_form.html.erb:21: `@' without identifiers is not allowed as an instance variable name
+app/views/doctor_appointments/_form.html.erb:21: Can't assign to nil
+app/views/doctor_appointments/_form.html.erb:21: syntax error, unexpected ':', expecting '='
+app/views/doctor_appointments/_form.html.erb:16: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+app/views/doctor_appointments/_form.html.erb:21: `@' without identifiers is not allowed as an instance variable name
+app/views/doctor_appointments/_form.html.erb:21: Can't assign to nil
+app/views/doctor_appointments/_form.html.erb:21: syntax error, unexpected ':', expecting '='
+app/views/doctor_appointments/_form.html.erb:16: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+app/views/doctor_appointments/_form.html.erb:21: `@' without identifiers is not allowed as an instance variable name
+app/views/doctor_appointments/_form.html.erb:21: Can't assign to nil
+app/views/doctor_appointments/_form.html.erb:21: syntax error, unexpected ':', expecting '='
+app/views/doctor_appointments/new.html.erb:3
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 01:48:11 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "Doctor"]]
+  ↳ app/views/doctor_appointments/_form.html.erb:16:in `collect'
+  [1m[36mPatient Load (4.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/doctor_appointments/_form.html.erb:21:in `collect'
+  Rendered doctor_appointments/_form.html.erb (Duration: 180.6ms | Allocations: 5278)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 194.3ms | Allocations: 5551)
+  Rendered layout layouts/application.html.erb (Duration: 201.7ms | Allocations: 5633)
+Completed 500 Internal Server Error in 301ms (ActiveRecord: 15.4ms | Allocations: 6541)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Patient id: 3, first_name: "Daniel", last_name: "Ugochukwu", age: "23", address: "Amaetiti Achi", created_at: "2024-04-19 00:35:07.700448000 +0000", updated_at: "2024-04-19 00:35:07.700448000 +0000">):
+    18: 
+    19:   <div>
+    20:     <%= form.label :patient_id, style: "display: block" %>
+    21:     <%= form.select :patient_id, @patients.collect { |p| [p.name, p.id] } %>
+    22:   </div>
+    23: 
+    24:   <div>
+  
+app/views/doctor_appointments/_form.html.erb:21
+app/views/doctor_appointments/_form.html.erb:21:in `collect'
+app/views/doctor_appointments/_form.html.erb:21
+app/views/doctor_appointments/_form.html.erb:1
+app/views/doctor_appointments/new.html.erb:3
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 01:49:04 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "Doctor"]]
+  ↳ app/views/doctor_appointments/_form.html.erb:16:in `collect'
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/doctor_appointments/_form.html.erb:21:in `collect'
+  Rendered doctor_appointments/_form.html.erb (Duration: 30.6ms | Allocations: 3255)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 46.1ms | Allocations: 3562)
+  Rendered layout layouts/application.html.erb (Duration: 192.7ms | Allocations: 18614)
+Completed 200 OK in 245ms (Views: 226.3ms | ActiveRecord: 3.1ms | Allocations: 19550)
+
+
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 01:49:49 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  Rendered doctor_appointments/_form.html.erb (Duration: 150.2ms | Allocations: 1526)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 166.7ms | Allocations: 1797)
+  Rendered layout layouts/application.html.erb (Duration: 169.1ms | Allocations: 1880)
+Completed 500 Internal Server Error in 210ms (ActiveRecord: 0.0ms | Allocations: 2784)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with(model: doctor_appointment) do |form| %>
+  <% if doctor_appointment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(doctor_appointment.errors.count, "error") %> prohibited this doctor_appointment from being saved:</h2>
+
+      <ul>
+        <% doctor_appointment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.select :user_id, @doctors.collect { |d| [d.first_name d.last_name, d.id] } %>
+  </div>
+
+  <div>
+    <%= form.label :patient_id, style: "display: block" %>
+    <%= form.select :patient_id, @patients.collect { |p| [p.first_name p.last_name, p.id] } %>
+  </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :illness, style: "display: block" %>
+    <%= form.text_field :illness %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+):
+1:    <%= form_with(model: doctor_appointment) do |form| %>
+2:      <% if doctor_appointment.errors.any? %>
+3:        <div style="color: red">
+4:          <h2><%= pluralize(doctor_appointment.errors.count, "error") %> prohibited this doctor_appointment from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% doctor_appointment.errors.each do |error| %>
+8:              <li><%= error.full_message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <div>
+15:        <%= form.label :user_id, style: "display: block" %>
+16:        <%= form.select :user_id, @doctors.collect { |d| [d.first_name d.last_name, d.id] } %>
+17:      </div>
+18:    
+19:      <div>
+20:        <%= form.label :patient_id, style: "display: block" %>
+21:        <%= form.select :patient_id, @patients.collect { |p| [p.first_name p.last_name, p.id] } %>
+22:      </div>
+23:    
+24:      <div>
+25:        <%= form.label :date, style: "display: block" %>
+26:        <%= form.date_field :date %>
+27:      </div>
+28:    
+29:      <div>
+30:        <%= form.label :illness, style: "display: block" %>
+31:        <%= form.text_field :illness %>
+32:      </div>
+33:    
+34:      <div>
+35:        <%= form.submit %>
+36:      </div>
+37:    <% end %>
+  
+app/views/doctor_appointments/_form.html.erb:16: syntax error, unexpected local variable or method, expecting ']'
+app/views/doctor_appointments/_form.html.erb:21: syntax error, unexpected local variable or method, expecting ']'
+app/views/doctor_appointments/_form.html.erb:16: syntax error, unexpected local variable or method, expecting ']'
+app/views/doctor_appointments/_form.html.erb:21: syntax error, unexpected local variable or method, expecting ']'
+app/views/doctor_appointments/_form.html.erb:16: syntax error, unexpected local variable or method, expecting ']'
+app/views/doctor_appointments/_form.html.erb:21: syntax error, unexpected local variable or method, expecting ']'
+app/views/doctor_appointments/_form.html.erb:16: syntax error, unexpected local variable or method, expecting ']'
+app/views/doctor_appointments/_form.html.erb:21: syntax error, unexpected local variable or method, expecting ']'
+app/views/doctor_appointments/new.html.erb:3
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 01:51:03 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "Doctor"]]
+  ↳ app/views/doctor_appointments/_form.html.erb:16:in `collect'
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/doctor_appointments/_form.html.erb:21:in `collect'
+  Rendered doctor_appointments/_form.html.erb (Duration: 172.1ms | Allocations: 3246)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 190.1ms | Allocations: 3551)
+  Rendered layout layouts/application.html.erb (Duration: 213.2ms | Allocations: 5215)
+Completed 200 OK in 260ms (Views: 245.5ms | ActiveRecord: 1.7ms | Allocations: 6141)
+
+
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 01:51:08 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "Doctor"]]
+  ↳ app/views/doctor_appointments/_form.html.erb:16:in `collect'
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/doctor_appointments/_form.html.erb:21:in `collect'
+  Rendered doctor_appointments/_form.html.erb (Duration: 24.9ms | Allocations: 2741)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 31.7ms | Allocations: 2831)
+  Rendered layout layouts/application.html.erb (Duration: 60.0ms | Allocations: 4183)
+Completed 200 OK in 76ms (Views: 65.1ms | ActiveRecord: 1.8ms | Allocations: 4539)
+
+
+Started GET "/users" for ::1 at 2024-04-19 01:51:28 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/sign_up" for ::1 at 2024-04-19 01:51:38 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 47ms (ActiveRecord: 14.7ms | Allocations: 4146)
+
+
+Started GET "/" for ::1 at 2024-04-19 01:51:39 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 105)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 1752)
+Completed 200 OK in 66ms (Views: 54.4ms | ActiveRecord: 0.0ms | Allocations: 2493)
+
+
+Started GET "/sign_out" for ::1 at 2024-04-19 01:52:06 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/sign_out"):
+  
+Started GET "/users/sign_out" for ::1 at 2024-04-19 01:52:41 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/users/sign_out" for ::1 at 2024-04-19 01:58:08 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/" for ::1 at 2024-04-19 01:58:18 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 106)
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 470.7ms | Allocations: 22123)
+Completed 200 OK in 546ms (Views: 449.8ms | ActiveRecord: 50.0ms | Allocations: 23851)
+
+
+Started GET "/users/sign_out" for ::1 at 2024-04-19 01:58:51 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/" for ::1 at 2024-04-19 02:00:57 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 106)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 129.7ms | Allocations: 2919)
+Completed 200 OK in 181ms (Views: 164.6ms | ActiveRecord: 1.1ms | Allocations: 3766)
+
+
+Started DELETE "/users/sign_out?_method=delete" for ::1 at 2024-04-19 02:01:01 +0100
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 203ms (ActiveRecord: 0.8ms | Allocations: 2972)
+
+
+Started GET "/" for ::1 at 2024-04-19 02:01:04 +0100
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 58.4ms | Allocations: 1664)
+Completed 200 OK in 90ms (Views: 81.8ms | ActiveRecord: 0.0ms | Allocations: 1990)
+
+
+Started GET "/sign_up" for ::1 at 2024-04-19 02:01:21 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/sign_up"):
+  
+Started GET "/users/sign_up" for ::1 at 2024-04-19 02:01:44 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 39.5ms | Allocations: 229)
+  Rendered devise/shared/_links.html.erb (Duration: 166.6ms | Allocations: 527)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 370.7ms | Allocations: 3282)
+  Rendered layout layouts/application.html.erb (Duration: 386.6ms | Allocations: 4758)
+Completed 200 OK in 444ms (Views: 433.3ms | ActiveRecord: 0.0ms | Allocations: 6003)
+
+
+Started POST "/users" for ::1 at 2024-04-19 02:03:12 +0100
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Amara", "last_name"=>"nkuma", "email"=>"nkumabethelamarachukwu@gmail.com", "role"=>"Doctor", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (6.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nkumabethelamarachukwu@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (15.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "nkumabethelamarachukwu@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-04-19 01:03:13.098458"], ["updated_at", "2024-04-19 01:03:13.098458"], ["first_name", "Amara"], ["last_name", "nkuma"], ["role", "Doctor"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 609ms (ActiveRecord: 28.6ms | Allocations: 6475)
+
+
+Started GET "/" for ::1 at 2024-04-19 02:03:13 +0100
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 52.8ms | Allocations: 2435)
+Completed 200 OK in 76ms (Views: 66.6ms | ActiveRecord: 1.3ms | Allocations: 2723)
+
+
+Started DELETE "/users/sign_out?_method=delete" for ::1 at 2024-04-19 02:03:21 +0100
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 22ms (ActiveRecord: 0.8ms | Allocations: 1836)
+
+
+Started GET "/" for ::1 at 2024-04-19 02:03:21 +0100
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 49.2ms | Allocations: 1604)
+Completed 200 OK in 62ms (Views: 54.3ms | ActiveRecord: 0.0ms | Allocations: 1891)
+
+
+Started GET "/" for ::1 at 2024-04-19 02:04:44 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 127.8ms | Allocations: 2189)
+Completed 200 OK in 191ms (Views: 171.1ms | ActiveRecord: 0.0ms | Allocations: 3036)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-04-19 02:04:48 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.7ms | Allocations: 696)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 577.2ms | Allocations: 10309)
+  Rendered layout layouts/application.html.erb (Duration: 591.0ms | Allocations: 11835)
+Completed 200 OK in 660ms (Views: 644.4ms | ActiveRecord: 0.0ms | Allocations: 12967)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-04-19 02:04:51 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 3.1ms | Allocations: 225)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 88)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 27.5ms | Allocations: 2734)
+  Rendered layout layouts/application.html.erb (Duration: 58.5ms | Allocations: 4256)
+Completed 200 OK in 107ms (Views: 98.3ms | ActiveRecord: 0.0ms | Allocations: 5177)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-04-19 02:04:53 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.5ms | Allocations: 1211)
+  Rendered layout layouts/application.html.erb (Duration: 42.6ms | Allocations: 2652)
+Completed 200 OK in 58ms (Views: 46.5ms | ActiveRecord: 0.0ms | Allocations: 3304)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-04-19 02:04:56 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 15.3ms | Allocations: 1920)
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | Allocations: 3376)
+Completed 200 OK in 60ms (Views: 45.4ms | ActiveRecord: 0.0ms | Allocations: 3959)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-04-19 02:04:59 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 5.4ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 24.7ms | Allocations: 1920)
+  Rendered layout layouts/application.html.erb (Duration: 56.7ms | Allocations: 3371)
+Completed 200 OK in 70ms (Views: 59.6ms | ActiveRecord: 0.0ms | Allocations: 3949)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-04-19 02:05:02 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 4.3ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 24.8ms | Allocations: 1211)
+  Rendered layout layouts/application.html.erb (Duration: 62.3ms | Allocations: 2656)
+Completed 200 OK in 100ms (Views: 74.2ms | ActiveRecord: 0.0ms | Allocations: 3298)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-04-19 02:05:07 +0100
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"danielochuba78@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "danielochuba78@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 607ms (ActiveRecord: 3.1ms | Allocations: 3086)
+
+
+Started GET "/" for ::1 at 2024-04-19 02:05:08 +0100
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 76.1ms | Allocations: 2448)
+Completed 200 OK in 90ms (Views: 81.2ms | ActiveRecord: 1.3ms | Allocations: 2775)
+
+
+Started GET "/rails/info/routes" for ::1 at 2024-04-19 02:06:23 +0100
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8.1/lib/rails/templates/layouts/application.html.erb
+  Rendering c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actionpack-7.0.8.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [63 times] (Duration: 56.6ms | Allocations: 9847)
+  Rendered c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actionpack-7.0.8.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 7.0ms | Allocations: 885)
+  Rendered c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 130.0ms | Allocations: 16400)
+  Rendered layout c:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8.1/lib/rails/templates/layouts/application.html.erb (Duration: 176.4ms | Allocations: 16675)
+Completed 200 OK in 220ms (Views: 199.4ms | ActiveRecord: 0.0ms | Allocations: 17646)
+
+
+Started DELETE "/users/sign_out?_method=delete" for ::1 at 2024-04-19 02:07:20 +0100
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 48ms (ActiveRecord: 0.8ms | Allocations: 1814)
+
+
+Started GET "/" for ::1 at 2024-04-19 02:07:20 +0100
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 185.9ms | Allocations: 2206)
+Completed 200 OK in 266ms (Views: 236.5ms | ActiveRecord: 0.0ms | Allocations: 3095)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-04-19 02:07:22 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 5.5ms | Allocations: 225)
+  Rendered devise/shared/_links.html.erb (Duration: 11.4ms | Allocations: 515)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 66.5ms | Allocations: 3218)
+  Rendered layout layouts/application.html.erb (Duration: 92.4ms | Allocations: 4739)
+Completed 200 OK in 179ms (Views: 167.4ms | ActiveRecord: 0.0ms | Allocations: 5757)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-04-19 02:07:32 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 141)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1605)
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | Allocations: 3127)
+Completed 200 OK in 75ms (Views: 61.7ms | ActiveRecord: 0.0ms | Allocations: 4094)
+
+
+Started GET "/" for ::1 at 2024-04-19 02:09:06 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 176.2ms | Allocations: 2186)
+Completed 200 OK in 247ms (Views: 226.7ms | ActiveRecord: 0.0ms | Allocations: 3034)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-04-19 02:09:12 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 5.5ms | Allocations: 225)
+  Rendered devise/shared/_links.html.erb (Duration: 10.5ms | Allocations: 515)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 82.3ms | Allocations: 3220)
+  Rendered layout layouts/application.html.erb (Duration: 171.6ms | Allocations: 4756)
+Completed 200 OK in 274ms (Views: 234.8ms | ActiveRecord: 0.0ms | Allocations: 5757)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-04-19 02:09:13 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 141)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 61.2ms | Allocations: 1606)
+  Rendered layout layouts/application.html.erb (Duration: 136.6ms | Allocations: 3128)
+Completed 200 OK in 215ms (Views: 205.4ms | ActiveRecord: 0.0ms | Allocations: 4090)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-04-19 02:09:16 +0100
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"danielochuba78@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "danielochuba78@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 579ms (ActiveRecord: 1.8ms | Allocations: 2690)
+
+
+Started GET "/" for ::1 at 2024-04-19 02:09:17 +0100
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 61.5ms | Allocations: 2450)
+Completed 200 OK in 78ms (Views: 64.0ms | ActiveRecord: 0.7ms | Allocations: 2777)
+
+
+Started GET "/patients" for ::1 at 2024-04-19 02:09:22 +0100
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (5.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 2.9ms | Allocations: 240)
+  Rendered patients/index.html.erb within layouts/application (Duration: 35.3ms | Allocations: 3051)
+  Rendered layout layouts/application.html.erb (Duration: 63.3ms | Allocations: 4567)
+Completed 200 OK in 200ms (Views: 136.0ms | ActiveRecord: 6.0ms | Allocations: 7550)
+
+
+Started GET "/patients/3" for ::1 at 2024-04-19 02:09:27 +0100
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/show.html.erb within layouts/application (Duration: 13.9ms | Allocations: 601)
+  Rendered layout layouts/application.html.erb (Duration: 136.5ms | Allocations: 2017)
+Completed 200 OK in 284ms (Views: 151.2ms | ActiveRecord: 1.8ms | Allocations: 4912)
+
+
+Started GET "/patients/3" for ::1 at 2024-04-19 02:09:28 +0100
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPatient Load (1.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:63:in `set_patient'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/_patient.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered patients/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 400)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 1816)
+Completed 200 OK in 74ms (Views: 32.0ms | ActiveRecord: 2.3ms | Allocations: 4023)
+
+
+Started GET "/patients" for ::1 at 2024-04-19 02:10:58 +0100
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (2.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/patients/index.html.erb:6
+  Rendered patients/_patient.html.erb (Duration: 2.8ms | Allocations: 226)
+  Rendered patients/index.html.erb within layouts/application (Duration: 24.8ms | Allocations: 1328)
+  Rendered layout layouts/application.html.erb (Duration: 161.8ms | Allocations: 3222)
+Completed 200 OK in 221ms (Views: 198.4ms | ActiveRecord: 3.1ms | Allocations: 5472)
+
+
+Started GET "/doctor_appointments" for ::1 at 2024-04-19 02:11:01 +0100
+Processing by DoctorAppointmentsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/index.html.erb within layouts/application
+  [1m[36mDoctorAppointment Load (10.3ms)[0m  [1m[34mSELECT "doctor_appointments".* FROM "doctor_appointments"[0m
+  ↳ app/views/doctor_appointments/index.html.erb:6
+  Rendered doctor_appointments/index.html.erb within layouts/application (Duration: 30.0ms | Allocations: 948)
+  Rendered layout layouts/application.html.erb (Duration: 83.1ms | Allocations: 2510)
+Completed 200 OK in 207ms (Views: 136.7ms | ActiveRecord: 11.3ms | Allocations: 5749)
+
+
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 02:11:04 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "Doctor"]]
+  ↳ app/views/doctor_appointments/_form.html.erb:16:in `collect'
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/doctor_appointments/_form.html.erb:21:in `collect'
+  Rendered doctor_appointments/_form.html.erb (Duration: 43.5ms | Allocations: 3144)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 52.4ms | Allocations: 3437)
+  Rendered layout layouts/application.html.erb (Duration: 73.7ms | Allocations: 4897)
+Completed 200 OK in 128ms (Views: 82.0ms | ActiveRecord: 11.5ms | Allocations: 8262)
+
+
+Started POST "/doctor_appointments" for ::1 at 2024-04-19 02:11:25 +0100
+Processing by DoctorAppointmentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "doctor_appointment"=>{"user_id"=>"3", "patient_id"=>"3", "date"=>"", "illness"=>"Malaria"}, "commit"=>"Create Doctor appointment"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mPatient Load (1.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  Rendered doctor_appointments/_form.html.erb (Duration: 4.5ms | Allocations: 1708)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1772)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 1853)
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 5.0ms | Allocations: 11059)
+
+
+  
+ActionView::Template::Error (undefined method `collect' for nil:NilClass):
+    13: 
+    14:   <div>
+    15:     <%= form.label :user_id, style: "display: block" %>
+    16:     <%= form.select :user_id, @doctors.collect { |d| ["#{d.first_name} #{d.last_name}", d.id] } %>
+    17:   </div>
+    18: 
+    19:   <div>
+  
+app/views/doctor_appointments/_form.html.erb:16
+app/views/doctor_appointments/_form.html.erb:1
+app/views/doctor_appointments/new.html.erb:3
+app/controllers/doctor_appointments_controller.rb:33:in `block (2 levels) in create'
+app/controllers/doctor_appointments_controller.rb:28:in `create'
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 02:14:46 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "Doctor"]]
+  ↳ app/views/doctor_appointments/_form.html.erb:16:in `collect'
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/doctor_appointments/_form.html.erb:21:in `collect'
+  Rendered doctor_appointments/_form.html.erb (Duration: 48.9ms | Allocations: 4650)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 53.0ms | Allocations: 4755)
+  Rendered layout layouts/application.html.erb (Duration: 270.2ms | Allocations: 19698)
+Completed 200 OK in 516ms (Views: 286.9ms | ActiveRecord: 101.9ms | Allocations: 29443)
+
+
+Started POST "/doctor_appointments" for ::1 at 2024-04-19 02:15:05 +0100
+Processing by DoctorAppointmentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "doctor_appointment"=>{"user_id"=>"3", "patient_id"=>"3", "date"=>"", "illness"=>"Malaria"}, "commit"=>"Create Doctor appointment"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "doctor"]]
+  ↳ app/views/doctor_appointments/_form.html.erb:16:in `collect'
+  [1m[36mPatient Load (1.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/doctor_appointments/_form.html.erb:21:in `collect'
+  Rendered doctor_appointments/_form.html.erb (Duration: 26.1ms | Allocations: 3417)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 28.0ms | Allocations: 3507)
+  Rendered layout layouts/application.html.erb (Duration: 132.9ms | Allocations: 4959)
+Completed 422 Unprocessable Entity in 259ms (Views: 155.9ms | ActiveRecord: 8.3ms | Allocations: 13070)
+
+
+Started GET "/doctor_appointments/new" for ::1 at 2024-04-19 02:15:13 +0100
+Processing by DoctorAppointmentsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/new.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "Doctor"]]
+  ↳ app/views/doctor_appointments/_form.html.erb:16:in `collect'
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/doctor_appointments/_form.html.erb:21:in `collect'
+  Rendered doctor_appointments/_form.html.erb (Duration: 25.3ms | Allocations: 2620)
+  Rendered doctor_appointments/new.html.erb within layouts/application (Duration: 58.6ms | Allocations: 2711)
+  Rendered layout layouts/application.html.erb (Duration: 159.5ms | Allocations: 4186)
+Completed 200 OK in 197ms (Views: 166.6ms | ActiveRecord: 3.1ms | Allocations: 5927)
+
+
+Started POST "/doctor_appointments" for ::1 at 2024-04-19 02:15:22 +0100
+Processing by DoctorAppointmentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "doctor_appointment"=>{"user_id"=>"3", "patient_id"=>"3", "date"=>"2024-04-30", "illness"=>"Malaria"}, "commit"=>"Create Doctor appointment"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mDoctorAppointment Create (11.7ms)[0m  [1m[32mINSERT INTO "doctor_appointments" ("user_id", "patient_id", "date", "illness", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 3], ["patient_id", 3], ["date", "2024-04-30"], ["illness", "Malaria"], ["created_at", "2024-04-19 01:15:23.269511"], ["updated_at", "2024-04-19 01:15:23.269511"]]
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/doctor_appointments_controller.rb:29:in `block in create'
+Redirected to http://localhost:3000/doctor_appointments/1
+Completed 302 Found in 73ms (ActiveRecord: 16.2ms | Allocations: 5689)
+
+
+Started GET "/doctor_appointments/1" for ::1 at 2024-04-19 02:15:23 +0100
+Processing by DoctorAppointmentsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mDoctorAppointment Load (0.7ms)[0m  [1m[34mSELECT "doctor_appointments".* FROM "doctor_appointments" WHERE "doctor_appointments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/doctor_appointments_controller.rb:68:in `set_doctor_appointment'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/show.html.erb within layouts/application
+  Rendered doctor_appointments/_doctor_appointment.html.erb (Duration: 3.5ms | Allocations: 243)
+  Rendered doctor_appointments/show.html.erb within layouts/application (Duration: 18.6ms | Allocations: 1032)
+  Rendered layout layouts/application.html.erb (Duration: 59.6ms | Allocations: 2486)
+Completed 200 OK in 104ms (Views: 64.5ms | ActiveRecord: 1.4ms | Allocations: 5514)
+
+
+Started GET "/doctor_appointments" for ::1 at 2024-04-19 02:15:43 +0100
+Processing by DoctorAppointmentsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering doctor_appointments/index.html.erb within layouts/application
+  [1m[36mDoctorAppointment Load (1.1ms)[0m  [1m[34mSELECT "doctor_appointments".* FROM "doctor_appointments"[0m
+  ↳ app/views/doctor_appointments/index.html.erb:6
+  Rendered doctor_appointments/_doctor_appointment.html.erb (Duration: 0.4ms | Allocations: 32)
+  Rendered doctor_appointments/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 820)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 2272)
+Completed 200 OK in 60ms (Views: 35.2ms | ActiveRecord: 2.5ms | Allocations: 3949)
+
+
