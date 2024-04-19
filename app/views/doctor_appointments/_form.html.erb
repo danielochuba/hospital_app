@@ -13,12 +13,12 @@
 
   <div>
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.select :user_id, @doctors.collect { |d| ["#{d.first_name} #{d.last_name}", d.id] } %>
   </div>
 
   <div>
     <%= form.label :patient_id, style: "display: block" %>
-    <%= form.text_field :patient_id %>
+    <%= form.select :patient_id, @patients.collect { |p| ["#{p.first_name} #{p.last_name}", p.id] } %>
   </div>
 
   <div>

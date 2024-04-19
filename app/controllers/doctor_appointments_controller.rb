@@ -1,5 +1,6 @@
 class DoctorAppointmentsController < ApplicationController
   before_action :set_doctor_appointment, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /doctor_appointments or /doctor_appointments.json
   def index
@@ -11,6 +12,9 @@ class DoctorAppointmentsController < ApplicationController
 
   # GET /doctor_appointments/new
   def new
+    @doctors = User.where(role: 'Doctor');
+    @patients = Patient.all
+
     @doctor_appointment = DoctorAppointment.new
   end
 
@@ -26,6 +30,8 @@ class DoctorAppointmentsController < ApplicationController
         format.html { redirect_to doctor_appointment_url(@doctor_appointment), notice: 'Doctor appointment was successfully created.' }
         format.json { render :show, status: :created, location: @doctor_appointment }
       else
+        @doctors = User.where(role: 'doctor')
+        @patients = Patient.all
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @doctor_appointment.errors, status: :unprocessable_entity }
       end
