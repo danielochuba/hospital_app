@@ -1,6 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @doctor_appointment %>
+
+
+<table class="min-w-full table-auto border border-gray-300">
+          <thead>
+            <tr>
+              <th class="px-4 py-2">Name</th>
+              <th class="px-4 py-2">Date</th>
+              <th class="px-4 py-2">Illness</th>
+              <% if can? :manage, @patient %>
+                <th class="px-4 py-2">Actions</th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+           <%= render @doctor_appointment %>
+          </tbody>
+        </table>
 
 <div>
   <%= link_to "Edit this doctor appointment", edit_doctor_appointment_path(@doctor_appointment) %> |

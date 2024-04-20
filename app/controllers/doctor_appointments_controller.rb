@@ -5,6 +5,7 @@ class DoctorAppointmentsController < ApplicationController
   # GET /doctor_appointments or /doctor_appointments.json
   def index
     @doctor_appointments = DoctorAppointment.all
+    @patient = Patient.new
   end
 
   # GET /doctor_appointments/1 or /doctor_appointments/1.json
@@ -27,7 +28,7 @@ class DoctorAppointmentsController < ApplicationController
 
     respond_to do |format|
       if @doctor_appointment.save
-        format.html { redirect_to doctor_appointment_url(@doctor_appointment), notice: 'Doctor appointment was successfully created.' }
+        format.html { redirect_to authenticated_root_path, notice: 'Doctor appointment was successfully created.' }
         format.json { render :show, status: :created, location: @doctor_appointment }
       else
         @doctors = User.where(role: 'doctor')
@@ -53,6 +54,7 @@ class DoctorAppointmentsController < ApplicationController
 
   # DELETE /doctor_appointments/1 or /doctor_appointments/1.json
   def destroy
+    @doctor_appointment.patient.destroy # This will delete the patient and all associated doctor appointments
     @doctor_appointment.destroy
 
     respond_to do |format|

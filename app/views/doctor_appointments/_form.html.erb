@@ -1,37 +1,40 @@
-<%= form_with(model: doctor_appointment) do |form| %>
-  <% if doctor_appointment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(doctor_appointment.errors.count, "error") %> prohibited this doctor_appointment from being saved:</h2>
 
-      <ul>
-        <% doctor_appointment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="w-[60%] m-auto">
+<%= form_with(model: doctor_appointment, class: 'bg-white shadow-md rounded-lg p-6') do |form| %>
+  <% if doctor_appointment.errors.any? %>
+    <div class="text-red-500">
+      <h2 class="font-semibold"><%= pluralize(doctor_appointment.errors.count, "error") %> prohibited this doctor_appointment from being saved:</h2>
+
+      <ul class="list-disc ml-8">
+        <% doctor_appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :doctor, style: "display: block" %>
-    <%= form.select :user_id, @doctors.collect { |d| ["#{d.first_name} #{d.last_name}", d.id] } %>
+  <div class="mb-4">
+    <%= form.label :doctor, class: 'block text-sm font-medium text-gray-700' %>
+    <%= form.select :user_id, @doctors.collect { |d| ["#{d.first_name} #{d.last_name}", d.id] }, { prompt: 'Select Doctor' }, class: 'mt-1 p-2 w-full border rounded-md' %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :patient_id, class: 'block text-sm font-medium text-gray-700' %>
+    <%= form.select :patient_id, @patients.collect { |p| ["#{p.first_name} #{p.last_name}", p.id] }, { prompt: 'Select Patient' }, class: 'mt-1 p-2 w-full border rounded-md' %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :date, class: 'block text-sm font-medium text-gray-700' %>
+    <%= form.date_field :date, class: 'mt-1 p-2 w-full border rounded-md' %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :illness, class: 'block text-sm font-medium text-gray-700' %>
+    <%= form.text_field :illness, class: 'mt-1 p-2 w-full border rounded-md' %>
   </div>
 
   <div>
-    <%= form.label :patient_id, style: "display: block" %>
-    <%= form.select :patient_id, @patients.collect { |p| ["#{p.first_name} #{p.last_name}", p.id] } %>
-  </div>
-
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
-  </div>
-
-  <div>
-    <%= form.label :illness, style: "display: block" %>
-    <%= form.text_field :illness %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: 'bg-blue-200 hover:bg-blue-700 text-green font-bold py-2 px-4 rounded' %>
   </div>
 <% end %>
+</div>

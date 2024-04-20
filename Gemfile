@@ -80,3 +80,5 @@ gem 'cancancan', '~> 3.5'
 gem 'chartkick'
 gem 'googlecharts'
 gem "groupdate"
+
+gem "tailwindcss-rails"
