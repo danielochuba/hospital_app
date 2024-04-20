@@ -10492,3 +10492,25 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d0bfba311c9fbcf4ea9f39be25d53e1f9cc00093"], ["created_at", "2024-04-20 22:50:37.256188"], ["updated_at", "2024-04-20 22:50:37.256188"]]
   [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/doctor_appointments/1" for ::1 at 2024-04-20 23:51:00 +0100
+Processing by DoctorAppointmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoctorAppointment Load (7.2ms)[0m  [1m[34mSELECT "doctor_appointments".* FROM "doctor_appointments" WHERE "doctor_appointments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/doctor_appointments_controller.rb:70:in `set_doctor_appointment'
+Completed 404 Not Found in 264ms (ActiveRecord: 36.2ms | Allocations: 4044)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find DoctorAppointment with 'id'=1):
+  
+app/controllers/doctor_appointments_controller.rb:70:in `set_doctor_appointment'
+Started GET "/" for ::1 at 2024-04-20 23:51:23 +0100
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 483)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 3037)
+Completed 200 OK in 85ms (Views: 58.4ms | ActiveRecord: 0.0ms | Allocations: 3778)
+
+
