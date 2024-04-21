@@ -79,6 +79,6 @@ gem 'devise'
 gem 'cancancan', '~> 3.5'
 gem 'chartkick'
 gem 'googlecharts'
-gem "groupdate"
+gem 'groupdate'
 
-gem "tailwindcss-rails"
+gem 'tailwindcss-rails'

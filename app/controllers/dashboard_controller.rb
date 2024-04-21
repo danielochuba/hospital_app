@@ -17,6 +17,6 @@ class DashboardController < ApplicationController
       render 'default_dashboard'
     end
 
-    Rails.logger.debug "Rendering dashboard for #{current_user.role}"  # Debug output
+    Rails.logger.debug "Rendering dashboard for #{current_user.role}" # Debug output
   end
 end

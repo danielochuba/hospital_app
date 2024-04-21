@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 class Ability
   include CanCan::Ability
@@ -9,7 +8,7 @@ class Ability
     can :read, Patient if user.doctor?
 
     return unless user.receptionist?
-    can :manage, Patient
 
+    can :manage, Patient
   end
 end
