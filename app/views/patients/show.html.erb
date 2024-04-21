@@ -3,8 +3,13 @@
 <%= render @patient %>
 
 <div>
-  <%= link_to "Edit this patient", edit_patient_path(@patient) %> |
+  <%if can? :update, @patient %>
+    <%= link_to "Edit this patient", edit_patient_path(@patient) %> |
+  <%end%>
+
   <%= link_to "Back to patients", patients_path %>
 
-  <%= button_to "Destroy this patient", @patient, method: :delete %>
+  <%if can? :delete, @patient %>
+    <%= button_to "Destroy this patient", @patient, method: :delete %>
+  <%end%>
 </div>

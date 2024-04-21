@@ -3,12 +3,25 @@
 <h1>Patients</h1>
 
 <div id="patients">
-  <% @patients.each do |patient| %>
-    <%= render patient %>
-    <p>
-      <%= link_to "Show this patient", patient %>
-    </p>
-  <% end %>
+      <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <%= render patient %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>
 
-<%= link_to "New patient", new_patient_path %>
+<% if can? :create, @patient %>
+  <%= link_to "New patient", new_patient_path %>
+<% end %>

@@ -1,0 +1,55 @@
+<div class="container mx-auto p-4">
+  <h2 class="text-center text-2xl font-semibold text-cyan-500 mb-8">Doctor Dashboard</h2>
+
+  <div class="w-3/4 mx-auto">
+    <%= line_chart @patients_count_by_day, class: 'mb-8' %>
+
+    <div class="flex justify-between space-x-2 mb-8">
+      <div class="w-1/2">
+        <h3 class="text-lg font-semibold text-cyan-400 mb-4">All Patients</h3>
+        <table class="min-w-full table-auto border border-gray-300">
+          <thead>
+            <tr>
+              <th class="px-4 py-2">Name</th>
+              <th class="px-4 py-2">Age</th>
+              <th class="px-4 py-2">Address</th>
+              <% if can? :manage, @patient %>
+                <th class="px-4 py-2">Actions</th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% @patients.each do |patient| %>
+              <tr>
+                <%= render patient %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="w-1/2">
+        <h3 class="text-lg font-semibold text-cyan-400 mb-4">Patients with Appointments</h3>
+        <table class="min-w-full table-auto border border-gray-300">
+          <thead>
+            <tr>
+              <th class="px-4 py-2">Name</th>
+              <th class="px-4 py-2">Date</th>
+              <th class="px-4 py-2">Illness</th>
+              <% if can? :manage, @patient %>
+                <th class="px-4 py-2">Actions</th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% @patients_appointed.each do |patient| %>
+              <tr>
+                <%= render patient %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

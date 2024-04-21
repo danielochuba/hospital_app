@@ -1,22 +1,26 @@
 <div id="<%= dom_id patient %>">
-  <p>
-    <strong>First name:</strong>
+  <td class="text-center">
     <%= patient.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
     <%= patient.last_name %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Age:</strong>
+
+  <td class="text-center">
     <%= patient.age %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Address:</strong>
+  <td class="text-center">
     <%= patient.address %>
-  </p>
+  </td>
+
+  <% if can? :manage, patient %>
+    <td class="px-4">
+      <div class="space-x-2 flex justify-center">
+        <%= link_to "View", patient, class: "text-blue-600 hover:underline" %>
+        <%= link_to "Edit", edit_patient_path(patient), class: "text-yellow-600 hover:underline" %>
+        <%= button_to "Delete", patient, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-600 hover:underline" %>
+      </div>
+    </td>
+  <% end %>
 
 </div>

@@ -1,10 +1,12 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /patients or /patients.json
   def index
     @patients = Patient.all
+    @patient = Patient.new
   end
 
   # GET /patients/1 or /patients/1.json
@@ -24,7 +26,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to patient_url(@patient), notice: 'Patient was successfully created.' }
+        format.html { redirect_to authenticated_root_path, notice: 'Patient was successfully created.' }
         format.json { render :show, status: :created, location: @patient }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +39,7 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-        format.html { redirect_to patient_url(@patient), notice: 'Patient was successfully updated.' }
+        format.html { redirect_to authenticated_root_path, notice: 'Patient was successfully updated.' }
         format.json { render :show, status: :ok, location: @patient }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +53,7 @@ class PatientsController < ApplicationController
     @patient.destroy
 
     respond_to do |format|
-      format.html { redirect_to patients_url, notice: 'Patient was successfully destroyed.' }
+      format.html { redirect_to authenticated_root_path, notice: 'Patient was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

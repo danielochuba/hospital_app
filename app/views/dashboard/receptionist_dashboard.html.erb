@@ -1,0 +1,25 @@
+<div class="p-6 bg-white shadow-md rounded-lg">
+  <h1 class="text-3xl font-semibold text-center text-gray-800 mb-8">Receptionist Dashboard</h1>
+
+  <div id="patients" class="overflow-x-auto">
+    <table class="min-w-full bg-white border-collapse border border-gray-300">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 bg-gray-100 border-b border-gray-300">Name</th>
+          <th class="py-2 px-4 bg-gray-100 border-b border-gray-300">Age</th>
+          <th class="py-2 px-4 bg-gray-100 border-b border-gray-300">Address</th>
+          <% if can? :manage, @patient %>
+            <th class="py-2 px-4 bg-gray-100 border-b border-gray-300">Actions</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @patients.each do |patient| %>
+          <tr class="hover:bg-gray-100 transition-colors duration-200">
+            <%= render patient %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

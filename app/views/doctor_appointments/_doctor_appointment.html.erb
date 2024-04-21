@@ -1,22 +1,32 @@
 <div id="<%= dom_id doctor_appointment %>">
-  <p>
-    <strong>User:</strong>
-    <%= doctor_appointment.user_id %>
-  </p>
+  <td class="text-center">
+    <%= doctor_appointment.patient.first_name %>
+    <%= doctor_appointment.patient.last_name %>
+  </td>
 
-  <p>
-    <strong>Patient:</strong>
-    <%= doctor_appointment.patient_id %>
-  </p>
+<% if can? :manage, @patient %>
+  <td class="text-center">
+    <%= doctor_appointment.user.first_name %>
+    <%= doctor_appointment.user.last_name %>
+  </td>
+  <% end %>
 
-  <p>
-    <strong>Date:</strong>
+  <td class="text-center">
     <%= doctor_appointment.date %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Illness:</strong>
+  <td class="text-center">
     <%= doctor_appointment.illness %>
-  </p>
+  </td>
+
+  <% if can? :manage, @patient %>
+  <td class="px-4">
+      <div class="space-x-2 flex justify-center">
+        <%= link_to "View", doctor_appointment, class: "text-blue-600 hover:underline" %>
+        <%= link_to "Edit", edit_doctor_appointment_path(doctor_appointment), class: "text-yellow-600 hover:underline" %>
+        <%= button_to "Delete", doctor_appointment, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-600 hover:underline" %>
+      </div>
+    </td>
+  <% end %>
 
 </div>
