@@ -4,8 +4,12 @@
 
 <h1><b>HOSPITAL APP</b></h1>
  
-  <img src="./hospital_app_ERD.png" alt="logo" width="200"  height="auto">
+  <img src="./hospital_app_ERD.png" alt="logo" width="450"  height="auto">
   <br/>
+
+
+https://github.com/danielochuba/hospital_app/assets/81446846/1a57fe07-111e-4bd0-a88f-a1305c062f16
+
 
 </div>
 
