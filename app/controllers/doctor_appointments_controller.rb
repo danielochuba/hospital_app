@@ -43,7 +43,7 @@ class DoctorAppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @doctor_appointment.update(doctor_appointment_params)
-        format.html { redirect_to doctor_appointment_url(@doctor_appointment), notice: 'Doctor appointment was successfully updated.' }
+        format.html { redirect_to authenticated_root_path, notice: 'Doctor appointment was successfully updated.' }
         format.json { render :show, status: :ok, location: @doctor_appointment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,11 +54,10 @@ class DoctorAppointmentsController < ApplicationController
 
   # DELETE /doctor_appointments/1 or /doctor_appointments/1.json
   def destroy
-    @doctor_appointment.patient.destroy # This will delete the patient and all associated doctor appointments
     @doctor_appointment.destroy
 
     respond_to do |format|
-      format.html { redirect_to doctor_appointments_url, notice: 'Doctor appointment was successfully destroyed.' }
+      format.html { redirect_to authenticated_root_path, notice: 'Doctor appointment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

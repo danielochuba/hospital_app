@@ -23,7 +23,6 @@
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -76,13 +75,13 @@
 - **[Patient Management]**: Receptionists can view and manage patient records.
 - **[Doctor Portal]**: Doctors can view registered patients and visualize patient registrations over days through graphs.
 - **[Unified Login]**: Both receptionists and doctors can log in through a unified login portal.
-- **[Responsive Design]**: The application is responsive and can be viewed on mobile, tablet, and desktop devices.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Coming Soon...]()
+- [Sorry I have exhausted my Render database, I cannot deply this at the moment]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,9 +127,13 @@ Go to your /recipe-app folder:
   rspec spec
 ```
 
-### Deployment
+or
 
-You can deploy this project using:<br>[Coming Soon!!!]()
+```sh
+  rspec spec -f d -c
+```
+for a detailed test info
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -146,24 +149,8 @@ You can deploy this project using:<br>[Coming Soon!!!]()
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Login page and registration page]**
-- [ ] **[Food list]**
-- [ ] **[Display a list of food added by the logged-in user as in the wireframe (display also quantity of a given food)]**
-- [ ] **[Recipes list]**
-- [ ] **[Display a list of recipes created by the logged-in user as in the wireframe]**
-- [ ] **[Recipe details]**
-- [ ] **[Public recipe list]**
-- [ ] **[Display a list of all public recipes ordered by newest as in the wireframe]**
-- [ ] **[Display a toggle button that allows for a recipe to be made public or private]**
-- [ ] **[Display the recipe details as in the wireframe]**
-- [ ] **[Allows the user to add new food]**
-- [ ] **[General shopping list view (only for a group that has less than 3 members)]**
-- [ ] **[Show the list of food that is missing for all recipes of the logged-in user (compare the list of food for all recipes with      
-         the general food list of that user)]**
-- [ ] **[Count the total food items and total price of the missing food]**
-- [ ] **[No N+1 queries happening]**
-- [ ] **[Navigation menu that allows users to open all of the pages you created]**
-- [ ] **[Unit and integration tests]**
+- [ ] **Responsive Design**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
