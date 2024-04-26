@@ -1,4 +1,3 @@
-# app/controllers/dashboard_controller.rb
 class DashboardController < ApplicationController
   before_action :authenticate_user!
 
@@ -13,8 +12,7 @@ class DashboardController < ApplicationController
       @patient = Patient.new
       render 'receptionist_dashboard'
     else
-      # Default dashboard content for other user roles
-      render 'default_dashboard'
+
     end
 
     Rails.logger.debug "Rendering dashboard for #{current_user.role}" # Debug output
