@@ -11,8 +11,6 @@ class DashboardController < ApplicationController
       @patients = Patient.all
       @patient = Patient.new
       render 'receptionist_dashboard'
-    else
-
     end
 
     Rails.logger.debug "Rendering dashboard for #{current_user.role}" # Debug output
