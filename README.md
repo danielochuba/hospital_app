@@ -4,8 +4,12 @@
 
 <h1><b>HOSPITAL APP</b></h1>
  
-  <img src="./hospital_app_ERD.png" alt="logo" width="200"  height="auto">
+  <img src="./hospital_app_ERD.png" alt="logo" width="450"  height="auto">
   <br/>
+
+
+https://github.com/danielochuba/hospital_app/assets/81446846/1a57fe07-111e-4bd0-a88f-a1305c062f16
+
 
 </div>
 
@@ -27,7 +31,6 @@
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
@@ -107,7 +110,7 @@ Clone this repository to your desired folder:
 ```
 ### Install
 
-Go to your /recipe-app folder:
+Go to your /hospital_app folder:
 
 ```sh
   cd hospital_app
@@ -150,6 +153,7 @@ for a detailed test info
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Responsive Design**
+- [ ] **Thorough Styling**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -158,21 +162,13 @@ for a detailed test info
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/danielochuba/hospital_app/issues/).
+Feel free to check the [issues page](https://github.com/danielochuba/hospital_app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ⭐️ Show your support <a name="support"></a>
 
 If you like this project, please give me a like, it doesn't cost you anything and it helps me a lot to keep working.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-We would like to thank Bee in Student Success who is always avalaible to solve issues and Microverse for push us to work hard every day!
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ❓ FAQ <a name="faq"></a>
 
