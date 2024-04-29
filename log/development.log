@@ -14326,3 +14326,8 @@ Processing by DoctorAppointmentsController#new as HTML
 Completed 200 OK in 214ms (Views: 168.9ms | ActiveRecord: 2.9ms | Allocations: 7305)
 
 
+Started GET "/rails/info/routeshttps://github.com/danielochuba/hospital_app/" for ::1 at 2024-04-21 02:28:38 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/rails/info/routeshttps:/github.com/danielochuba/hospital_app"):
+  
